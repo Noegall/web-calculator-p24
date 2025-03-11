@@ -9,5 +9,5 @@ document.addEventListener("DOMContentLoaded", () => {
     touches=document.getElementsByClassName("calculator__keys")
     let number = touches[0].childNodes
     ecran=document.getElementsByClassName("calculator__display")
-    number.forEach((e)=> e.addEventListener("click", ()=> ecran[0].innerHTML=e.innerHTML))
+    number.forEach((e)=> e.addEventListener("click", ()=> ecran[0].innerHTML=ecran[0].innerHTML+e.innerHTML))
 })
