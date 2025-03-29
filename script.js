@@ -34,8 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         else {constante=calcul(constante,ecran[0].innerHTML,operation);
             operation=e.dataset.action
         };
-        ecran[0].innerHTML=null;
-        console.log(constante)}
+        ecran[0].innerHTML=null;}
     else if (e.classList.contains("key--equal")){constante=calcul(constante,ecran[0].innerHTML,operation);
         ecran[0].innerHTML=constante;
         operation=null
