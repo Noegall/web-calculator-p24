@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ecran=document.getElementsByClassName("calculator__display")
     number.forEach((e)=> e.addEventListener("click", ()=> {if (e.id=="AC") {
         ecran[0].innerHTML=0;
-        constante=null
+        constante=0
         operation=null}
     else if (e.classList.contains("key--operator")){
         if (operation==null){constante=ecran[0].innerHTML;
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ecran[0].innerHTML=constante;
         operation=null
     }
-    else { if (ecran[0].innerHTML==0) {
+    else { if (ecran[0].innerHTML=="0") {
         if (e.id=="point") {ecran[0].innerHTML=ecran[0].innerHTML+e.innerHTML}
         else {ecran[0].innerHTML=e.innerHTML}
     }
