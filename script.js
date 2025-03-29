@@ -20,20 +20,26 @@ function calcul(a,b, operation) {
 document.addEventListener("DOMContentLoaded", () => {
     touches=document.getElementsByClassName("calculator__keys")
     let number = touches[0].childNodes
-    let constante = null
+    let constante = 0
     let operation = null
     ecran=document.getElementsByClassName("calculator__display")
     number.forEach((e)=> e.addEventListener("click", ()=> {if (e.id=="AC") {
-        ecran[0].innerHTML=0;}
+        ecran[0].innerHTML=0;
+        constante=null
+        operation=null}
     else if (e.classList.contains("key--operator")){
-        if (constante==null){constante=ecran[0].innerHTML;
+        if (operation==null){constante=ecran[0].innerHTML;
             operation = e.dataset.action
         }
         else {constante=calcul(constante,ecran[0].innerHTML,operation);
             operation=e.dataset.action
         };
-        ecran[0].innerHTML=0;
+        ecran[0].innerHTML=null;
         console.log(constante)}
+    else if (e.classList.contains("key--equal")){constante=calcul(constante,ecran[0].innerHTML,operation);
+        ecran[0].innerHTML=constante;
+        operation=null
+    }
     else { if (ecran[0].innerHTML==0) {
         if (e.id=="point") {ecran[0].innerHTML=ecran[0].innerHTML+e.innerHTML}
         else {ecran[0].innerHTML=e.innerHTML}
